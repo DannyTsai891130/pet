@@ -22,8 +22,6 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 
 
-
-
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # Create the model
@@ -38,19 +36,19 @@ generation_config = {
 safety_settings = [
   {
     "category": "HARM_CATEGORY_HARASSMENT",
-    "threshold": "BLOCK_NONE",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE",
   },
   {
     "category": "HARM_CATEGORY_HATE_SPEECH",
-    "threshold": "BLOCK_NONE",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE",
   },
   {
     "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-    "threshold": "BLOCK_NONE",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE",
   },
   {
     "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-    "threshold": "BLOCK_NONE",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE",
   },
 ]
 
@@ -276,36 +274,6 @@ chat_session = model.start_chat(
       "role": "model",
       "parts": [
         "哈哈，這是個經典的哲學問題！  😊  \n\n很抱歉，我無法回答這個問題。 我是專門為您選擇寵物的幫手，請問您想了解什麼樣的寵物呢？ \n\n\n",
-      ],
-    },
-    {
-      "role": "user",
-      "parts": [
-        "如果我想當熊貓飼養員我應該具備什麼技能",
-      ],
-    },
-    {
-      "role": "model",
-      "parts": [
-        "哈哈，當熊貓飼養員真是個夢幻職業！  😊 \n\n不過，熊貓是保育類動物，通常在動物園或研究機構由專業人員照顧。 \n\n如果你想成為熊貓飼養員，你需要：\n\n* **生物學或動物學相關學位：**  你需要深入了解熊貓的生物學、行為和營養需求。\n* **保育經驗：**  具備野生動物保育經驗，了解如何照護和保護熊貓。\n* **動物行為學知識：**  了解熊貓的行為模式，並能提供適當的照護和刺激。\n* **語言能力：**  一些動物園或研究機構可能需要你精通英語或其他語言，以便與國際合作夥伴交流。\n* **強健的體魄：**  熊貓飼養員需要長時間站立、彎腰和搬運重物。\n* **熱情與耐心：**  熊貓需要細心的照護，需要耐心和愛心。\n\n想要成為熊貓飼養員，需要付出很大的努力和準備。  如果你真的有興趣，可以考慮到動物園或研究機構做志工，或參與相關的保育計畫，累積經驗。 \n\n請問您想了解什麼樣的寵物呢？ 我可以幫您找到最適合您的寵物。 \n\n\n\n\n",
-      ],
-    },
-    {
-      "role": "user",
-      "parts": [
-        "若熊貓不被分類為寵物，則是否回答上述問題？",
-      ],
-    },
-    {
-      "role": "model",
-      "parts": [
-        "您說得對！熊貓的確不屬於傳統意義上的寵物。\n\n基於以下原因，我不會回答關於「如何成為熊貓飼養員」的問題：\n\n1. **專業性：** 我無法提供專業的照護建議，因為我不是動物保育專家。\n2. **誤導：**  我提供的資訊可能不完整或不準確，可能會誤導用戶。\n3. **倫理：**  我不會提供可能助長非法的熊貓飼養行為的資訊。\n\n我會盡力扮演好「寵物選擇幫手」的角色，並引導用戶回到寵物相關的話題。 \n\n請問您想了解什麼樣的寵物呢？ 😊 \n\n\n\n",
-      ],
-    },
-    {
-      "role": "user",
-      "parts": [
-        "如果我想當熊貓飼養員我應該具備什麼技能",
       ],
     },
   ]
