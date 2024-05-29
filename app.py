@@ -22,7 +22,7 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+genai.configure(api_key=GEMINI_API_KEY)
 
 # Create the model
 # See https://ai.google.dev/api/python/google/generativeai/GenerativeModel
@@ -53,9 +53,9 @@ safety_settings = [
 ]
 
 model = genai.GenerativeModel(
-  model_name="gemini-1.5-flash",
-  safety_settings=safety_settings,
-  generation_config=generation_config,
+    model_name="gemini-1.5-flash-latest",
+    safety_settings=safety_settings,
+    generation_config=generation_config,
 )
 
 chat_session = model.start_chat(
@@ -307,7 +307,7 @@ def handle_message(event):
         reply = TextSendMessage(text=response)
     except Exception as e:
         print(f"Error: {str(e)}")
-        reply = TextSendMessage(text="請問有關宜蘭的哪方面活動資訊？")
+        reply = TextSendMessage(text="請問我適合養什麼寵物？")
     
     line_bot_api.reply_message(event.reply_token, reply)
 
