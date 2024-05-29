@@ -307,7 +307,7 @@ def handle_message(event):
         reply = TextSendMessage(text=response)
     except Exception as e:
         print(f"Error: {str(e)}")
-        reply = TextSendMessage(text="請問我適合養什麼寵物？")
+        reply = TextSendMessage(text="我是寵物選擇幫手，我可以幫助您找到最適合您的寵物。")
     
     line_bot_api.reply_message(event.reply_token, reply)
 
